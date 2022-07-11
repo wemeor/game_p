@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en" data-lt-installed="true" class="theme-dark" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Викторина</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="css_general.css">
+
+    <script src="js/jq_v3.6.0.js"></script>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+
+        <div id="account" class="headWrap account">
+            <div class="headIcon">
+                <svg class="iconPic" width="42" height="42" viewBox="0 0 45.364 45.364">
+                    <path d="M28.682,28.682A11.341,11.341,0,1,0,17.341,17.341,11.338,11.338,0,0,0,28.682,28.682Zm0,5.67C21.112,34.352,6,38.151,6,45.693v5.67H51.364v-5.67C51.364,38.151,36.252,34.352,28.682,34.352Z" fill="currentColor" transform="translate(-6 -6)"/>
+                </svg>
+            </div>
+            <div class="popupWrap hide">
+                <div class="popupCont">
+                    <div class="popupContent">
+                        <div class="authAutist isNoneAuthorized">
+                            <input id="radioAuth" name="authRadios" class="authRadio hide" type="radio" checked />
+                            <label class="menuLabel auth" for="radioAuth">Есть аккаунт</label>
+                            <form id="user-auth" class="form">
+                                <div class="formInputWrap">
+                                    <input name="nickname" type="text" class="inputText" placeholder="Никнейм" />
+                                </div>
+                                <div class="formInputWrap">
+                                    <input name="password" type="password" class="inputText" placeholder="Пароль" />
+                                </div>
+                                <div class="formInputWrap">
+                                    <button type="submit" class="enterButton">Вход</button>
+                                </div>
+                            </form>
+
+                            <input id="radioRegister" name="authRadios" class="authRadio hide" type="radio" />
+                            <label class="menuLabel reg" for="radioRegister">Создать аккаунт</label>
+                            <form id="user-create" class="form">
+                                <div class="formInputWrap">
+                                    <input name="nickname" type="text" class="inputText" placeholder="Придумай никнейм" />
+                                </div>
+                                <div class="formInputWrap">
+                                    <input name="password" type="password" class="inputText" placeholder="Придумай пароль" />
+                                </div>
+                                <div class="formInputWrap">
+                                    <input name="password-repeat" type="password" class="inputText" placeholder="Повтори пароль" />
+                                </div>
+                                <div class="formInputWrap">
+                                    <button type="submit" class="enterButton">Создать аккаунт</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="authAutist isAuthorized hide">
+
+                            <div class="auth_account">
+                                <div class="auth_left">
+                                    <div class="auth_nick">
+                                        <h3>Никнейм: <span id="auth_nick"></span></h3>
+                                    </div>
+
+                                    <div  class="auth_lvl_plays_points">
+                                        <div class="auth_lvl">
+                                            <span>Уровень сложности:</span>
+                                            <span id="difficult_level"></span>
+                                        </div>
+                                        <div class="auth_plays">
+                                            <span>Количество игр:</span>
+                                            <span id="games_count"></span>
+                                        </div>
+                                        <div class="auth_points">
+                                            <span>Очки:</span>
+                                            <span id="games_points"></span>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="auth_exit"></div>
+
+                                <div class="auth_right"></div>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                    <div class="popupCloser">
+                        <svg class="iconPic" width="60" height="60" viewBox="0 0 59.205 59.202">
+                            <g transform="translate(-131.899 -123.899)" stroke="currentColor"  stroke-width="1.7">
+                                <line x2="58" y2="58" transform="translate(132.5 124.5)"/>
+                                <line y1="58" x2="57.5" transform="translate(133 124.5)"/>
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="settings" class="headWrap settings hide">
+            <div class="headIcon">
+                <svg class="iconPic" width="42" height="42" viewBox="0 0 42.55 42.55">
+                    <path d="M43.537,25.769a5.474,5.474,0,0,1,3.513-5.107,21.694,21.694,0,0,0-2.626-6.325,5.55,5.55,0,0,1-2.227.476,5.462,5.462,0,0,1-5-7.688A21.641,21.641,0,0,0,30.883,4.5a5.471,5.471,0,0,1-10.216,0A21.706,21.706,0,0,0,14.34,7.125a5.462,5.462,0,0,1-5,7.688,5.369,5.369,0,0,1-2.227-.476A22.174,22.174,0,0,0,4.5,20.674a5.472,5.472,0,0,1,.011,10.214,21.7,21.7,0,0,0,2.626,6.325,5.465,5.465,0,0,1,7.214,7.212,21.833,21.833,0,0,0,6.327,2.625,5.461,5.461,0,0,1,10.194,0A21.706,21.706,0,0,0,37.2,44.425a5.471,5.471,0,0,1,7.214-7.212,21.821,21.821,0,0,0,2.626-6.325A5.5,5.5,0,0,1,43.537,25.769ZM25.875,34.621a8.862,8.862,0,1,1,8.865-8.862A8.861,8.861,0,0,1,25.875,34.621Z" fill="currentColor" transform="translate(-4.5 -4.5)"/>
+                </svg>
+            </div>
+            <div class="popupWrap hide">
+                <div class="popupCont">
+                    <div class="popupContent">
+                        <div class="authAutist">
+
+                            <div class="settingsWind">
+                                <div class="settingsText">
+                                    <h2>Settings</h2>
+                                </div>
+
+                                <div class="settingsMenu">
+                                    <div class="settingsComp">
+
+                                        <h3 class="h3set">Сложность:</h3>
+
+                                        <label class="settingsLabel" for="level_low">
+                                            <input id="level_low" name="level_switch" class="inputSet" type="radio">
+                                            <div class="rad-design"></div>
+                                            <span>Легко</span>
+                                        </label>
+
+                                        <label class="settingsLabel" for="level_high">
+                                            <input id="level_high" name="level_switch" class="inputSet" type="radio">
+                                            <div class="rad-design"></div>
+                                            <span>Сложно</span>
+                                        </label>
+
+                                    </div>
+                                    <div class="settingsTheme">
+                                        <h3 class="h3set">Тема:</h3>
+
+                                        <label class="settingsLabel" for="theme_light">
+                                            <input id="theme_light" name="theme_switch" class="keckCheburek inputSet" type="radio" data-theme="light"/>
+                                            <span>Светлая</span>
+                                        </label>
+
+                                        <label class="settingsLabel" for="theme_dark">
+                                            <input id="theme_dark" name="theme_switch" class="keckCheburek inputSet" type="radio" data-theme="dark" checked/>
+                                            <span>Темная</span>
+                                        </label>
+
+                                    </div>
+                                </div>
+
+                                <div class="settingsExit">
+                                    <button id="exit" type="text" class="enterButton exit">Выход из игры</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="popupCloser">
+                        <svg class="iconPic" width="60" height="60" viewBox="0 0 59.205 59.202">
+                            <g transform="translate(-131.899 -123.899)" stroke="currentColor"  stroke-width="1.7">
+                                <line x2="58" y2="58" transform="translate(132.5 124.5)"/>
+                                <line y1="58" x2="57.5" transform="translate(133 124.5)"/>
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="main">
+
+        <div id="welcome_page" class="welcome">
+            <h2 class="mainText"></h2>
+            <h3 class="subText">15 вопросов на время</h3>
+            <button id="start_game" type="text" class="enterButton enter hide">Start</button>
+        </div>
+
+        <div id="game_page" class="game hide">
+
+            <div class="questionWrapper">
+
+                <div class="a_ques_and_imag">
+                    <div class="a_question">
+                        <h2 class="JSQuestionText"></h2>
+                    </div>
+                    <div class="a_images">
+                        <img class="JSQuestionImage" src="design/images/questions/1.jpeg">
+                    </div>
+                </div>
+
+                <div class="JSAnswerWrapper a_answer">
+<!--                    <div class="answer scale">
+                       <span> Венера </span>
+                    </div>
+                    <div class="answer scale">
+                       <span> Сатурн</span>
+                    </div>
+                    <div class="answer scale">
+                       <span> Серкурий</span>
+                    </div>
+                    <div class="answer scale">
+                       <span> Марс </span>
+                    </div>-->
+                </div>
+
+                <template>
+                    <div class="JSQuestionAnswer answer scale"><span></span></div>
+                </template>
+            </div>
+
+
+<!--            <div class="quest_switch">
+                <h3>Вопрос полегче</h3>
+            </div>-->
+
+        </div>
+
+    </div>
+
+<footer>
+
+
+</footer>
+
+
+    </div>
+</div>
+
+</body>
+
+<script src="js/js.js"></script>
+<script src="js/questions.js"></script>
+
+</html>
